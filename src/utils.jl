@@ -1,3 +1,20 @@
+# ------------------------------- number utils ------------------------------- #
+
+"""
+    toint(x)
+
+Compact Float64 -> Int64 conversion
+"""
+toint(x::Float64) = Int(round(x))
+toint(x::AbstractVector) = Int.(round.(x))
+
+"""
+Linear interpolation.
+"""
+lerp(x1, x2, p) = (1 - p) .* x1 .+ p .* x2
+
+
+
 # ------------------------- number/string conversion ------------------------- #
 
 """

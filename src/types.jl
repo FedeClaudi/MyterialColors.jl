@@ -26,7 +26,7 @@ end
 Alternative constructor for `RGB` passing the color values
 ∈ [0, 1] range as floats.
 """
-RGB(r::Float64, g::Float64, b::Float64) = RGB(Int(round(r * 255)), Int(round(g * 255)), Int(round(b * 255)))
+RGB(r::Float64, g::Float64, b::Float64) = RGB(toint(r * 255), toint(g * 255), toint(b * 255))
 
 RGB(rgb::Union{Tuple, AbstractVector}) = RGB(rgb...)
 
@@ -44,6 +44,8 @@ function Base.iterate(rgb::RGB, state)
 end
 
 Base.length(rgb::RGB) = 3
+
+Base.Vector(rgb::RGB) = [rgb.r, rgb.g, rgb.b]
 
 
 # ---------------------------------------------------------------------------- #
