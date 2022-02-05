@@ -1,4 +1,4 @@
-module Myterial
+module MyterialColors
 
 include("codes.jl")
 

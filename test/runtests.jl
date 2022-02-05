@@ -1,12 +1,12 @@
-using Myterial
+using MyterialColors
 using Test
 
-@testset "Myterial.jl" begin
+@testset "MyterialColors.jl" begin
 
-    @test typeof(Myterial.salmon) == String
-    @test typeof(Myterial.salmon_light) == String
-    @test typeof(Myterial.salmon_lighter) == String
-    @test typeof(Myterial.salmon_dark) == String
-    @test typeof(Myterial.salmon_darker) == String
+    @test typeof(MyterialColors.salmon) == String
+    @test typeof(MyterialColors.salmon_light) == String
+    @test typeof(MyterialColors.salmon_lighter) == String
+    @test typeof(MyterialColors.salmon_dark) == String
+    @test typeof(MyterialColors.salmon_darker) == String
 
 end
