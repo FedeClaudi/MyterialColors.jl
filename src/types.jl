@@ -1,10 +1,13 @@
 import Parameters: @with_kw
-
+using Plots
 
 abstract type AbstractColor end
 abstract type AbstractRGB <: AbstractColor end
 abstract type AbstractHex <: AbstractColor end
 
+Plots.plot(color::AbstractColor; x=0, y=0, ms=100) = Plots.scatter(
+    [x], [y], c=Hex(color).string, ms=ms, xaxis=nothing, yaxis=nothing, xticks=[], yticks=[]
+)
 
 
 # ---------------------------------------------------------------------------- #
@@ -30,7 +33,6 @@ RGB(r::Float64, g::Float64, b::Float64) = RGB(toint(r * 255), toint(g * 255), to
 
 RGB(rgb::Union{Tuple, AbstractVector}) = RGB(rgb...)
 
-
 # ---------------------------------- methods --------------------------------- #
 Base.iterate(rgb::RGB) = (rgb.r, 1)
 function Base.iterate(rgb::RGB, state)
@@ -46,6 +48,9 @@ end
 Base.length(rgb::RGB) = 3
 
 Base.Vector(rgb::RGB) = [rgb.r, rgb.g, rgb.b]
+
+Base.show(io::IO, rgb::RGB) = print(io, "RGB: ($(rgb.r), $(rgb.g), $(rgb.b))")
+Base.show(io::IO, m::MIME"text/plain", rgb::RGB) = print(io, rgb)
 
 
 # ---------------------------------------------------------------------------- #
@@ -66,6 +71,8 @@ Base type for hex style colors
     end
 end
 
+
+
 # ---------------------------------- methods --------------------------------- #
 Base.iterate(hex::Hex) = (hex.code[1], 2)
 
@@ -74,3 +81,6 @@ function Base.iterate(hex::Hex, state)
 end
 
 Base.length(hex::Hex) = 6
+
+Base.show(io::IO, hex::Hex) = print(io, "Hex: $(hex.string)")
+Base.show(io::IO, m::MIME"text/plain", hex::Hex) = print(io, hex)
