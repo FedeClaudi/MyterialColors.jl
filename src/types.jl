@@ -49,10 +49,6 @@ Base.length(rgb::RGB) = 3
 
 Base.Vector(rgb::RGB) = [rgb.r, rgb.g, rgb.b]
 
-Base.show(io::IO, rgb::RGB) = print(io, "RGB: ($(rgb.r), $(rgb.g), $(rgb.b))")
-Base.show(io::IO, m::MIME"text/plain", rgb::RGB) = print(io, rgb)
-
-
 # ---------------------------------------------------------------------------- #
 #                                      HEX                                     #
 # ---------------------------------------------------------------------------- #
@@ -82,5 +78,3 @@ end
 
 Base.length(hex::Hex) = 6
 
-Base.show(io::IO, hex::Hex) = print(io, "Hex: $(hex.string)")
-Base.show(io::IO, m::MIME"text/plain", hex::Hex) = print(io, hex)
