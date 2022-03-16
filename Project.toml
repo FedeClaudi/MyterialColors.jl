@@ -1,7 +1,7 @@
 name = "MyterialColors"
 uuid = "1c23619d-4212-4747-83aa-717207fae70f"
 authors = ["FedeClaudi <federicoclaudi@protonmail.com> and contributors"]
-version = "0.2.1"
+version = "0.3.0"
 
 [compat]
 julia = "1.6"
