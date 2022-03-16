@@ -1,13 +1,10 @@
-import Parameters: @with_kw
-using Plots
-
 abstract type AbstractColor end
 abstract type AbstractRGB <: AbstractColor end
 abstract type AbstractHex <: AbstractColor end
 
-Plots.plot(color::AbstractColor; x=0, y=0, ms=100) = Plots.scatter(
-    [x], [y], c=Hex(color).string, ms=ms, xaxis=nothing, yaxis=nothing, xticks=[], yticks=[]
-)
+# Plots.plot(color::AbstractColor; x=0, y=0, ms=100) = Plots.scatter(
+#     [x], [y], c=Hex(color).string, ms=ms, xaxis=nothing, yaxis=nothing, xticks=[], yticks=[]
+# )
 
 
 # ---------------------------------------------------------------------------- #
@@ -19,7 +16,7 @@ Plots.plot(color::AbstractColor; x=0, y=0, ms=100) = Plots.scatter(
 
 Represents a color in RGB space
 """
-@with_kw mutable struct RGB <: AbstractRGB
+mutable struct RGB <: AbstractRGB
     r:: Int64
     g:: Int64
     b:: Int64
@@ -57,7 +54,7 @@ Base.Vector(rgb::RGB) = [rgb.r, rgb.g, rgb.b]
 
 Base type for hex style colors
 """
-@with_kw mutable struct Hex <: AbstractHex 
+mutable struct Hex <: AbstractHex 
     code::String
     string::String
     function Hex(s::String)

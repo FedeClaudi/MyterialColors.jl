@@ -1,4 +1,4 @@
-using Plots
+# using Plots
 
 # ---------------------------------------------------------------------------- #
 #                                    PALETTE                                   #
@@ -18,24 +18,24 @@ Base.show(io::IO, palette::Palette) = print(io, "Palette{$(typeof(palette.colors
 # this is used to show values in the REPL and when using IJulia
 Base.show(io::IO, m::MIME"text/plain", palette::Palette) = print(io, palette)
 
-function Plots.plot(p::Palette)
-    n = length(p.colors)
-    x = (1:n) .* 10
+# function Plots.plot(p::Palette)
+#     n = length(p.colors)
+#     x = (1:n) .* 10
 
-    scatter(
-        x,
-        zeros(n),
-        c=[Hex(c).string for c in p.colors],
-        xaxis=nothing, 
-        yaxis=nothing, 
-        ms=4,
-        xticks=[],
-        yticks=[],
-        xlim=[0, x[end]],
-        ylim=[-.05, .05],
-        label=nothing
-    )
-end
+#     scatter(
+#         x,
+#         zeros(n),
+#         c=[Hex(c).string for c in p.colors],
+#         xaxis=nothing, 
+#         yaxis=nothing, 
+#         ms=4,
+#         xticks=[],
+#         yticks=[],
+#         xlim=[0, x[end]],
+#         ylim=[-.05, .05],
+#         label=nothing
+#     )
+# end
 
 
 # ------------------------------- constructors ------------------------------- #

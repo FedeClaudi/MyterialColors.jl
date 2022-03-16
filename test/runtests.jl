@@ -77,16 +77,16 @@ end
 # ---------------------------------------------------------------------------- #
 #                                   palettte                                   #
 # ---------------------------------------------------------------------------- #
-@testset "Palette" begin
-    # create a palette from two colors
-    rgb1 = RGB(0, 0, 0)
-    rgb2 = RGB(255, 255, 255)
-    palette = Palette(rgb1, rgb2, 100)
+# @testset "Palette" begin
+#     # create a palette from two colors
+#     rgb1 = RGB(0, 0, 0)
+#     rgb2 = RGB(255, 255, 255)
+#     palette = Palette(rgb1, rgb2, 100)
 
-    @test length(palette.colors) == 100
-    @test palette.colors[1] ≂ rgb1
-    @test palette.colors[end] ≂ rgb2
+#     @test length(palette.colors) == 100
+#     @test palette.colors[1] ≂ rgb1
+#     @test palette.colors[end] ≂ rgb2
 
-    # check that palette equals is working
-    @test palette_equal(palette, palette)
-end
+#     # check that palette equals is working
+#     @test palette_equal(palette, palette)
+# end
