@@ -9,7 +9,6 @@ export RGB,Hex
 export rgb2hex,hex2rgb
 export Palette
 
-
 export red_lighter,
     red_light,
     red,
@@ -107,8 +106,5 @@ export red_lighter,
     blue_grey_darker,
     black,
     white
-
-
-
 
 end
